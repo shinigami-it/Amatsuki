@@ -1,9 +1,9 @@
-import express from "express";
-import { getRoleMemberCount, getRoleMembmerCounts } from "../services/discord/fetchRoles.js";
+const express = require('express');
+const { getRoleMemberCount, getRoleMembmerCounts } = require('../services/discord/fetchRoles.js');
 
 const router = express.Router();
 
-router.get('/roles/:guildId:roleId', async (req, res) => {
+router.get('/roles/:guildId/:roleId', async (req, res) => {
     try {
         const { guildId, roleId } = req.params
         const count = await getRoleMemberCount(guildId, roleId)
@@ -13,4 +13,4 @@ router.get('/roles/:guildId:roleId', async (req, res) => {
     }
 })
 
-export default router
+module.exports = router

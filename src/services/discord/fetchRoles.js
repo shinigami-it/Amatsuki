@@ -1,7 +1,7 @@
-import client from "./client.js";
+const client = require("./client.js");
 
-export async function getRoleMemberCount(guildId, roleId) {
-	const guildId = await client.guilds.fetch(guildId);
+async function getRoleMemberCount(guildId, roleId) {
+	const guild = await client.guilds.fetch(guildId);
 	if (!guild) throw new Error("Guild not found ❌");
 
 	await guild.members.fetch();
@@ -10,3 +10,5 @@ export async function getRoleMemberCount(guildId, roleId) {
 
 	return role.members.size;
 }
+
+module.exports = { getRoleMemberCount };

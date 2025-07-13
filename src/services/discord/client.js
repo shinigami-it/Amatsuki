@@ -1,4 +1,6 @@
-import { Client, GatewayIntentBits, GatewayIntents } from "discord.js";
+const chalkImport = require("chalk");
+const chalk = chalkImport.default || chalkImport;
+const { Client, GatewayIntentBits, GatewayIntents } = require("discord.js");
 
 const client = new Client({
 	intents: [
@@ -16,8 +18,8 @@ const client = new Client({
 
 client.once("ready", () => {
 	console.log(
-		chalk.green.bold(`Discord Bot logged in as ${client.user.tag} ✅`)
+		chalk.magenta.bold.underline(`Logged in as ${client.user.tag} ✅`)
 	);
 });
 
-export default client;
+module.exports = client;

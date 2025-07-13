@@ -1,8 +1,9 @@
-import express from "express";
-import discordClient from "./services/discord/client.js";
-import discordRoutes from "./routes/discord.js";
-import dotenv from "dotenv";
-import chalk from "chalk";
+const express = require("express");
+const discordClient = require("./services/discord/client.js");
+const discordRoutes = require("./routes/discord.js");
+const dotenv = require("dotenv");
+const chalkImport = require("chalk");
+const chalk = chalkImport.default || chalkImport;
 
 dotenv.config();
 
